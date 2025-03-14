@@ -53,8 +53,16 @@ class CircularObj {
 
     if (this.x > this.context.canvas.width - this.radius || this.x < this.radius) this.vx *= -1;
     if (this.y > this.context.canvas.height - this.radius || this.y < this.radius) this.vy *= -1;
-    
+
     requestAnimationFrame(() => this.update());
+
+  }
+
+  //checking if mouse coordinates are in the circle
+  containsPoint(mouseX, mouseY) {
+    const dx = this.x - mouseX;
+    const dy = this.y - mouseY;
+    return dx * dx + dy * dy <= this.radius * this.radius;
 
   }
 }
